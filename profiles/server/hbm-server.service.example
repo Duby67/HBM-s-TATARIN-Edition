@@ -1,0 +1,20 @@
+[Unit]
+Description=HBM CE Minecraft Server
+After=network.target
+
+[Service]
+User=minecraft
+Group=minecraft
+WorkingDirectory=/opt/hbm-server/server
+Environment=JAVA_BIN=/usr/bin/java
+Environment=FORGE_JAR=forge-1.12.2-14.23.5.2860.jar
+Environment=XMS=2G
+Environment=XMX=4G
+ExecStart=/opt/hbm-server/server/start.sh
+Restart=on-failure
+RestartSec=15
+SuccessExitStatus=0 143
+
+[Install]
+WantedBy=multi-user.target
+

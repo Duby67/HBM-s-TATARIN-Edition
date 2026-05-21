@@ -1,0 +1,34 @@
+# Minecraft binaries and runtime output
+*.jar
+*.zip
+*.disabled
+logs/
+crash-reports/
+backups/
+libraries/
+versions/
+
+# Server runtime state
+profiles/server/world/*
+profiles/server/eula.txt
+profiles/server/server.properties
+profiles/server/ops.json
+profiles/server/whitelist.json
+profiles/server/banned-*.json
+profiles/server/usercache.json
+
+# Client runtime state
+profiles/client/options.txt
+profiles/client/optionsof.txt
+profiles/client/screenshots/
+profiles/client/saves/
+
+# Keep placeholders
+!profiles/**/.gitkeep
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+

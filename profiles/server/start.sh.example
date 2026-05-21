@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+JAVA_BIN="${JAVA_BIN:-java}"
+FORGE_JAR="${FORGE_JAR:-forge-1.12.2-14.23.5.2860.jar}"
+XMS="${XMS:-2G}"
+XMX="${XMX:-4G}"
+
+exec "$JAVA_BIN" \
+  -Xms"$XMS" \
+  -Xmx"$XMX" \
+  -XX:+UseG1GC \
+  -XX:+UnlockExperimentalVMOptions \
+  -XX:MaxGCPauseMillis=100 \
+  -XX:+DisableExplicitGC \
+  -jar "$FORGE_JAR" nogui
+

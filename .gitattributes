@@ -1,0 +1,6 @@
+*.sh text eol=lf
+*.service.example text eol=lf
+*.md text
+*.csv text
+*.example text
+*.properties.example text

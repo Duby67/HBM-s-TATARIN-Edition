@@ -1,0 +1,41 @@
+# Minecraft server properties for HBM CE boot profile.
+# Copy to server.properties on the target server and adjust values there.
+
+server-port=25565
+server-ip=
+motd=HBM CE Boot Test
+max-players=10
+online-mode=true
+white-list=true
+allow-flight=true
+enable-command-block=false
+spawn-protection=16
+view-distance=8
+max-tick-time=60000
+difficulty=normal
+gamemode=survival
+hardcore=false
+pvp=true
+allow-nether=true
+generate-structures=true
+level-name=world
+level-seed=
+level-type=DEFAULT
+enable-rcon=false
+rcon.password=change-me-before-enable
+rcon.port=25575
+enable-query=false
+query.port=25565
+spawn-animals=true
+spawn-monsters=true
+spawn-npcs=true
+force-gamemode=false
+resource-pack=
+resource-pack-sha1=
+max-world-size=29999984
+network-compression-threshold=256
+use-native-transport=true
+prevent-proxy-connections=false
+player-idle-timeout=0
+broadcast-console-to-ops=true
+broadcast-rcon-to-ops=true
