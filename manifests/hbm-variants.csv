@@ -1,10 +1,9 @@
 name,type,minecraft,loader,latest_observed,status,source,side,notes
 "Hbm's Nuclear Tech Mod","base","1.7.10","Forge","HBM-NTM-[1.0.27_X5687].jar / 2026-05-06","official-active","CurseForge/GitHub/Modrinth","client-server","Content benchmark; hard server plugin story"
-"HBM's Nuclear Tech Mod: Community Edition","base","1.12.2","Forge","2.5.0.2 / 2026-05-01","primary-candidate","CurseForge/GitHub","client-server","Most promising 1.12.2 base; test first"
+"HBM's Nuclear Tech Mod: Community Edition","base","1.12.2","Forge","release jar from CurseForge/Modrinth/GitHub Releases","primary-selected","CurseForge/Modrinth/GitHub Warfactory-Official","client-server","Selected base. Source repo: Warfactory-Official/Hbm-s-Nuclear-Tech-CE; use release jars, not arbitrary master builds"
 "Hbm's Nuclear Tech - Extended Edition","base","1.12.2","Forge","NTM-Extended-1.12.2-3.0.3.jar / 2025-11-17","fallback-candidate","CurseForge/Modrinth","client-server","Popular 1.12.2 fork; current repo baseline before CE review"
 "Hbm's Nuclear Tech Mod Reloaded","base","1.12.2","Forge","hbm-1.8.4a-G.jar / 2023-11-22","legacy-candidate","CurseForge/GitHub","client-server","Older 1.12.2 port"
 "Hbm's Nuclear Tech - Hamster Reloaded","base","1.12.2","Forge","1.12.2-1.6.4 / 2023-12-08","niche-candidate","CurseForge/GitHub","client-server","Separate Reloaded fork"
 "HBM's Nuclear Tech Mod - Waldemar Edition","base","1.12.2","Forge","1.2.3.1 / 2026-05-05","experimental-candidate","CurseForge/GitHub","client-server","Extended 2.0.2 fork with fixes and custom content"
 "HBM's Nuclear Tech Modernized","rewrite","1.20.1","Forge","hbm_m-0.1.2-alpha.jar / 2026-03-04","not-for-server-now","CurseForge/Modrinth/GitHub","client-server","Pre-alpha, little content"
 "Hbm's Nuclear Tech - Muddy Edition","rewrite","1.20.1","Forge","2.0.0-alpha / 2025-11-23","not-for-server-now","CurseForge/GitHub","client-server","Alpha rewrite; not survival/server ready"
-

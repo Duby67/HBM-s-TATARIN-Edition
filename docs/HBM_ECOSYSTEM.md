@@ -10,18 +10,33 @@
 
 | Line | Minecraft | Recommendation | Why |
 | --- | --- | --- | --- |
-| HBM NTM: Community Edition | 1.12.2 | Primary candidate | Самая свежая 1.12.2-линия, позиционируется как преемник Reloaded/Extended, есть CE Space и Leafia addon. |
+| HBM NTM: Community Edition | 1.12.2 | Selected primary | Самая свежая 1.12.2-линия, позиционируется как преемник Reloaded/Extended, есть CE Space и Leafia addon. Source repo: `Warfactory-Official/Hbm-s-Nuclear-Tech-CE`. |
 | HBM NTM Extended Edition | 1.12.2 | Fallback candidate | Популярная и понятная линия, но уже конкурирует с CE по актуальности и полноте. |
 | Official HBM NTM | 1.7.10 | Content benchmark | Официальная и самая полная ветка, но хуже подходит под современный сервер с плагинами и QoL-модами. |
 
-Текущий вывод: если остаемся на `1.12.2`, стоит тестировать `HBM NTM: Community Edition` первым. Extended оставляем как запасной вариант, потому что у него большая база установок и больше старых аддонов.
+Текущий вывод: для `1.12.2` основной HBM-мод сборки - `HBM NTM: Community Edition`. Extended оставляем как запасной вариант, потому что у него большая база установок и больше старых аддонов.
 
 ## Base Mod Variants
 
 | Name | MC | Latest observed | Status | Notes |
 | --- | --- | --- | --- | --- |
 | Hbm's Nuclear Tech Mod | 1.7.10 | `HBM-NTM-[1.0.27_X5687].jar`, 2026-05-06 | Official / active | Главная upstream-линия. Лучший ориентир по контенту, но тяжелее для серверной инфраструктуры. |
-| HBM's Nuclear Tech Mod: Community Edition | 1.12.2 | `2.5.0.2`, 2026-05-01 | Strong candidate | Активный порт на 1.12.2, заявлен как наиболее полный и актуальный порт. |
+| HBM's Nuclear Tech Mod: Community Edition | 1.12.2 | release jar from CurseForge/Modrinth/GitHub Releases | Selected primary | Активный порт на 1.12.2. Исходники: `Warfactory-Official/Hbm-s-Nuclear-Tech-CE`; использовать release jar, не произвольный build из `master`. |
+
+## Selected HBM CE Repository
+
+Проверенный source repo: `Warfactory-Official/Hbm-s-Nuclear-Tech-CE`.
+
+Признаки, что это именно наша базовая HBM CE-линия:
+
+- README репозитория описывает проект как `HBM's Nuclear Tech Mod: Community Edition`.
+- `buildscript.properties` указывает `modName = HBM's Nuclear Tech Mod: Community Edition`.
+- `modId = hbm`.
+- `minecraftVersion = 1.12.2`.
+- `archiveBaseName = NTM-CE-1.12.2`.
+- Проект является 1.12.2-портом HBM NTM CE, а не Extended/Reloaded/Waldemar.
+
+Для сборки сервера берем опубликованный release `.jar`. `master` рассматриваем как исходники разработки: он полезен для проверки зависимостей, changelog и issues, но не является автоматическим источником production jar.
 | Hbm's Nuclear Tech - Extended Edition | 1.12.2 | `NTM-Extended-1.12.2-3.0.3.jar`, 2025-11-17 | Candidate / fallback | Популярный 1.12.2-порт. Автор указывает, что это не официальная 1.12.2-версия. |
 | Hbm's Nuclear Tech Mod Reloaded | 1.12.2 | `hbm-1.8.4a-G.jar`, 2023-11-22 | Legacy candidate | Старый популярный порт. Сейчас выглядит менее предпочтительно, чем CE/Extended. |
 | Hbm's Nuclear Tech - Hamster Reloaded | 1.12.2 | `1.12.2-1.6.4`, 2023-12-08 | Niche fork | Отдельная ветка Reloaded. Требует ручного сравнения контента и стабильности. |
@@ -33,16 +48,30 @@
 
 | Name | Target | MC | Latest observed | Server relevance | Notes |
 | --- | --- | --- | --- | --- | --- |
-| NTM CE: Space | NTM:CE | 1.12.2 | Published 2026, Modrinth | High candidate | Space addon для Community Edition. Требует NTM:CE и MixinBooter. Подходит клиенту и серверу. |
-| Leafia's Cursed Addon | NTM:CE | 1.12.2 | `v42_feature`, 2026-05-05 | Optional / risky | Быстро обновляется, но автор прямо отмечает потерю общей стабильности. |
-| HBM Galacticraft Companion | HBM + Galacticraft | 1.12.2 | `hbmgccompanion-0.1.5.jar`, 2026-02-07 | Optional | Делает Galacticraft Legacy и HBM более взаимозависимыми; автор предупреждает о риске поломок с отдельными форками HBM. |
-| HBM Fixes | HBM 1.12.2 | 1.12.2 | `12.1.0`, 2021-07-05 | Candidate for Reloaded/older ports | Небольшой фикс-мод. Нужно проверить, нужен ли он CE; не ставить вслепую поверх нового форка. |
-| Potatoo's Custom Structure For HBM | HBM 1.12.2 / Reloaded | 1.12.2 | `1.0.3`, 2022-04-23 | Optional | Добавляет HBM-структуры. Для сервера влияет на генерацию мира, тестировать до открытия мира. |
-| HBM/NTM structure | NTM Extended | 1.12.2 | `2.0`, 2025-03-18 | Optional | Постапокалиптические структуры для Extended. Не считать совместимым с CE без теста. |
-| HBM Ruins Pack | HBM 1.12.2 | 1.12.x | `HBM Ruins Pack_1.12.2-5(2).zip`, 2023-11-12 | Optional / low confidence | Небольшой addon pack, мало загрузок. |
+| NTM CE: Space | NTM:CE | 1.12.2 | Published 2026, Modrinth | CE-compatible candidate | Space addon для Community Edition. Требует NTM:CE и MixinBooter. Подходит клиенту и серверу, но тестировать отдельным профилем. |
+| Leafia's Cursed Addon | NTM:CE | 1.12.2 | `v24_fix`, 2026-01-22 observed | CE-compatible risky | Явно заявлен как Community Edition addon. Быстро обновляется, но автор прямо отмечает потерю общей стабильности. |
+| HBM Galacticraft Companion | HBM + Galacticraft | 1.12.2 | `hbmgccompanion-0.1.5.jar`, 2026-02-07 | Conditional / unknown with CE | Делает Galacticraft Legacy и HBM более взаимозависимыми; совместимость зависит от конкретного HBM-форка. |
+| HBM Fixes | HBM 1.12.2 legacy ports | 1.12.2 | `12.1.0`, 2021-07-05 | Not for CE unless proven | Небольшой фикс-мод для старых 1.12.2-портов. Не ставить поверх CE без конкретной причины. |
+| Potatoo's Custom Structure For HBM | HBM 1.12.2 / Reloaded | 1.12.2 | `1.0.3`, 2022-04-23 | Not for CE unless proven | Добавляет HBM-структуры. Target не подтвержден для CE; worldgen-риск. |
+| HBM/NTM structure | NTM Extended | 1.12.2 | `2.0`, 2025-03-18 | Not compatible with CE plan | Описание проекта прямо расширяет NTM Extended, не CE. |
+| HBM Ruins Pack | HBM 1.12.2 | 1.12.x | `HBM Ruins Pack_1.12.2-5(2).zip`, 2023-11-12 | Not for CE unless proven | Небольшой addon pack, мало загрузок и неясная совместимость. |
 | HBM NTM Lucky blocks | HBM Extended | 1.12.2 | `v1.1`, 2024-01-07 | Not recommended for serious server | Рандомные lucky blocks ломают прогрессию и баланс PvE/PvP. |
 | More Stuff for Minecraft | HBM + Creative Items | 1.12.2 | `morestuff-1.1.5.jar`, 2025-09-17 | Pack-dev only | Предметы для кастомных рецептов. Полезно только если будем делать серьезный CraftTweaker/KubeJS-подобный баланс. |
-| MSFH More structures for hbm | HBM Reloaded | 1.12.2 | `1.0.6`, 2026-03-14 | Low confidence | Маленький structure addon для Reloaded. Требует ручного теста и проверки источника. |
+| MSFH More structures for hbm | HBM Reloaded | 1.12.2 | `1.0.6`, 2026-03-14 | Not compatible with CE plan | Маленький structure addon для Reloaded. Не использовать с CE без доказанной совместимости. |
+
+## CE Addon Policy
+
+Для текущей сборки считаем совместимыми только аддоны, которые явно указывают `NTM:CE` или `Community Edition` как target.
+
+Практический список:
+
+| Tier | Addons |
+| --- | --- |
+| Допускаем к отдельному тесту | `NTM CE: Space`, `Leafia's Cursed Addon` |
+| Только если появится конкретная причина | `HBM Galacticraft Companion` |
+| Не включаем в CE-план | `HBM/NTM structure`, `MSFH More structures for hbm`, `Potatoo's Custom Structure`, `HBM Ruins Pack`, `HBM Fixes`, `HBM NTM Lucky blocks` |
+
+Причина: HBM-форки для `1.12.2` не являются бинарно и контентно взаимозаменяемыми. Аддон, написанный под Extended или Reloaded, может ссылаться на отсутствующие blocks/items/registries, менять worldgen не под тот fork или ломать баланс CE.
 
 ## Known Modpacks
 
@@ -65,7 +94,8 @@
 Тестовая матрица:
 
 1. `Forge 1.12.2 + HBM NTM: Community Edition`
-2. `Forge 1.12.2 + HBM NTM: Community Edition + NTM CE: Space + MixinBooter`
-3. `Forge 1.12.2 + HBM NTM: Community Edition + selected server utilities`
-4. Если CE падает на сервере или конфликтует с нужной экосистемой, откатиться к `Extended 3.0.3`.
-
+2. `Forge 1.12.2 + HBM NTM: Community Edition + MixinBooter`
+3. `Forge 1.12.2 + HBM NTM: Community Edition + NTM CE: Space + MixinBooter`
+4. `Forge 1.12.2 + HBM NTM: Community Edition + Leafia's Cursed Addon`
+5. `Forge 1.12.2 + HBM NTM: Community Edition + selected server utilities`
+6. Если CE падает на сервере или конфликтует с нужной экосистемой, откатиться к `Extended 3.0.3`.

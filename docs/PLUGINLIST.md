@@ -1,29 +1,27 @@
 # Plugin List
 
-Плагины предполагают серверный профиль с `SpongeForge` для Minecraft `1.12.2`. Bukkit/Spigot/Paper-плагины в обычный Forge-сервер не подходят.
+Плагины предполагают отдельный профиль `Forge + SpongeForge` для Minecraft `1.12.2`. Для текущего маленького сервера стартуем без SpongeForge и без полноценного plugin layer.
 
-## Required For Public Server
+Bukkit/Spigot/Paper-плагины в обычный Forge-сервер не подходят.
 
-| Plugin | Platform | Role | Notes |
+## Current Small Server Plan
+
+| Plugin | Platform | Status | Notes |
 | --- | --- | --- | --- |
-| LuckPerms | Sponge | Permissions | База прав и групп. |
-| Nucleus | Sponge | Essentials/admin commands | Команды, homes, warps, mute, jail и админские инструменты. |
-| GriefPrevention | Sponge | Claims/protection | Приваты для модового сервера. Нужно тестировать с HBM взрывами и радиацией. |
-| Spark | Sponge or Forge | Profiling | Профилирование TPS, tick entities, heap. |
+| Spark | Forge or Sponge | recommended | Для текущего плана предпочтительнее Forge-вариант без Sponge. |
+| SpongeForge | SpongeForge | optional later | Добавлять только если позже реально понадобятся Sponge-плагины. |
+| LuckPerms | Sponge | optional later | Только если понадобятся группы прав. |
+| UltimateChat | Sponge | optional later | Только если понадобится отдельное управление чатом. |
+| Plan | Sponge | optional later | Только если понадобится аналитика игроков. |
 
-## Recommended
+## Not Included
 
-| Plugin | Platform | Role | Notes |
-| --- | --- | --- | --- |
-| UltimateChat | Sponge | Chat channels | Каналы чата и форматирование. |
-| NuVotifier | Sponge | Voting integration | Только если нужен vote rewards. |
-| Plan | Sponge | Player analytics | Полезно для публичного сервера, требует БД/веб. |
-| EconomyLite | Sponge | Economy | Только если нужна экономика. |
+Эти плагины не добавляем в текущий план маленького сервера:
 
-## Candidate / Test First
-
-| Plugin | Platform | Role | Notes |
-| --- | --- | --- | --- |
-| WorldEdit Sponge | Sponge | Admin editing | Использовать осторожно с модовыми блоками. |
-| CatClearLag alternatives | Sponge | Cleanup | Проверить, чтобы не удалял нужные модовые entities/items. |
+| Plugin | Reason |
+| --- | --- |
+| WorldEdit | Лишний риск для модовых блоков и не нужен на маленьком сервере. |
+| EconomyLite | Экономика не планируется. |
+| GriefPrevention | Для маленького приватного сервера избыточен. |
+| Nucleus | Essentials/admin-команды пока не нужны. |
 

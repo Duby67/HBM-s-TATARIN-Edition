@@ -23,7 +23,7 @@ HBM-ветка пока не финализирована. После прове
 | Thermal Expansion | common | Machines | Не должен перетягивать прогрессию HBM на себя. |
 | Thermal Dynamics | common | Pipes/logistics | Проверить баланс с HBM трубами. |
 | Ender IO | common | Machines/conduits | Кандидат, может сильно упростить логистику. |
-| Mekanism | common | Tech | Кандидат: возможен конфликт по балансу с HBM. |
+| Mekanism | common | Tech | Оставляем в плане: совместимость с HBM подтверждена отдельным изучением. |
 | Immersive Engineering | common | Tech/energy | Хорошо ложится в индустриальную тематику. |
 | Storage Drawers | common | Storage | Удобно для массовых ресурсов. |
 | Iron Chests | common | Storage | Низкий риск, полезно в ранней игре. |
@@ -32,6 +32,22 @@ HBM-ветка пока не финализирована. После прове
 | Inventory Tweaks | client | Inventory QoL | Проверить стабильность на `1.12.2`. |
 | AppleSkin | client | Food HUD | Клиентский QoL. |
 | JourneyMap | client | Map | Сервер может запретить cave/radar настройки правилами. |
+
+## Farming And Food
+
+| Mod | Side | Role | Notes |
+| --- | --- | --- | --- |
+| Pam's HarvestCraft | common | Farming/cooking | Основной кандидат на фермерство и кулинарию. |
+| Cooking for Blockheads | common | Kitchen UX | Хорошо дополняет Pam's HarvestCraft. |
+| Spice of Life: Carrot Edition | common | Food variety HP rewards | Увеличивает максимальное HP за разнообразную еду. |
+
+## Browser Map
+
+| Tool | Side | Role | Notes |
+| --- | --- | --- | --- |
+| DynmapForge | server | Browser map | Основной кандидат. Настроить низкую частоту рендера и отключить агрессивные live-triggers. |
+| Minecraft Overviewer | external | Static isometric map | Кандидат для hourly cron-рендера с минимальной нагрузкой на сервер. Проверить HBM/Pam блоки. |
+| BlueMap | server/external | 3D browser map | Красиво, но путь для `1.12.2` требует отдельной проверки. |
 
 ## Performance And Admin
 
@@ -43,6 +59,13 @@ HBM-ветка пока не финализирована. После прове
 | VanillaFix | client | Crash handling/performance | Обычно клиентский. |
 | Chunk-Pregenerator | server | World pregen | Важно для сервера с тяжелой генерацией. |
 | Spark | server | Profiler | Использовать для диагностики TPS и лагов. |
+| AI Improvements | server | Mob AI optimization | Снижает нагрузку от мобов. |
+| FastWorkbench | common | Crafting optimization | Уменьшает нагрузку от crafting lookup. |
+| FastFurnace | common | Furnace optimization | Уменьшает нагрузку от furnace lookup. |
+| Clumps | common | XP orb optimization | Объединяет XP orbs. |
+| VintageFix | common | Modern 1.12.2 optimization | Кандидат вместо FoamFix, не ставить вместе без теста. |
+| Surge | common | Startup/runtime optimization | Кандидат, проверить coremod-совместимость. |
+| TexFix | client | Texture memory optimization | Полезно для слабых клиентов. |
 
 ## Later Candidates
 

@@ -51,6 +51,9 @@
 | `FoamFix` | client + server | recommended after boot-test | Оптимизация памяти, конфиг тестировать отдельно. |
 | `Chunk-Pregenerator` | server | recommended | Предгенерация мира перед публичным запуском. |
 | `Spark` | server | recommended | Профилирование TPS, heap и лагов. |
+| `Pam's HarvestCraft` | client + server | recommended | Фермерство, новые культуры и еда. Хорошая база для survival-сервера. |
+| `Cooking for Blockheads` | client + server | recommended | Кухонные блоки и удобная готовка, хорошо дополняет Pam's HarvestCraft. |
+| `Spice of Life: Carrot Edition` | client + server | recommended | Увеличивает максимальное HP за поедание разнообразной еды. |
 
 ## Клиентские QoL-Моды
 
@@ -71,23 +74,73 @@
 | `Thermal Expansion` | client + server | candidate | Машины. Может перетянуть прогрессию на себя. |
 | `Thermal Dynamics` | client + server | candidate | Трубы и логистика. Проверить баланс с HBM. |
 | `Ender IO` | client + server | candidate | Сильные conduits и машины. Проверить баланс. |
-| `Mekanism` | client + server | candidate | Крупный tech stack, высокий риск конфликта по прогрессии. |
+| `Mekanism` | client + server | recommended | Оставляем в плане сборки. Совместимость с HBM подтверждена отдельным изучением. |
 | `Galacticraft` | client + server | candidate | Космос. Имеет смысл только вместе с отдельной проверкой HBM-интеграций. |
+
+## Фермерство, Еда И HP
+
+| Mod | Side | Status | Notes |
+| --- | --- | --- | --- |
+| `Pam's HarvestCraft` | client + server | recommended | Основной мод на фермерство и кулинарию для `1.12.2`. Не конфликтует с HBM по тематике и дает мирную прогрессию для маленького сервера. |
+| `Cooking for Blockheads` | client + server | recommended | Кухонная инфраструктура и удобный доступ к рецептам еды. Особенно полезен вместе с Pam's HarvestCraft. |
+| `Spice of Life: Carrot Edition` | client + server | recommended | Дает постоянные дополнительные сердца за уникальные съеденные блюда. Хорошо мотивирует использовать кулинарный контент. |
+
+## Карта В Браузере
+
+| Tool | Side | Status | Notes |
+| --- | --- | --- | --- |
+| `DynmapForge` | server | primary candidate | Web-карта прямо из Forge-сервера. Настраивать низкую частоту рендера, отключать агрессивные live-triggers и делать fullrender вручную или по расписанию. |
+| `Minecraft Overviewer` | external | candidate for low load | Внешний генератор статической изометрической карты. Можно запускать cron-раз в час, почти не трогает tick-thread сервера. Минус: модовые блоки HBM/Pam нужно проверять отдельно. |
+| `BlueMap` | server / standalone | candidate | Красивая 3D web-карта, но для `1.12.2` путь установки менее прямой и может требовать Sponge или standalone-процесс. |
+
+Предпочтение сейчас: начать с `DynmapForge`, а если нагрузка будет заметной - перейти к внешнему `Minecraft Overviewer` с hourly render.
+
+## Оптимизация
+
+Оптимизаторы добавляем после чистого HBM CE boot-test. Coremod-оптимизации нельзя ставить пачкой без проверки: они часто пересекаются по зонам ответственности.
+
+| Mod | Side | Status | Notes |
+| --- | --- | --- | --- |
+| `Spark` | server | recommended | Профилирование перед оптимизацией. Сначала измеряем TPS, entities, tile entities и heap. |
+| `Chunk-Pregenerator` | server | recommended | Предгенерация мира снижает лаги exploration на публичном запуске. |
+| `AI Improvements` | server | recommended | Снижает нагрузку от mob AI. |
+| `FastWorkbench` | client + server | recommended | Оптимизирует crafting lookup. |
+| `FastFurnace` | client + server | recommended | Оптимизирует furnace lookup. |
+| `Clumps` | client + server | recommended | Объединяет XP orbs и уменьшает entity load. |
+| `VintageFix` | client + server | candidate | Современная оптимизация для `1.12.2`; тестировать как альтернативу FoamFix, не ставить вслепую вместе. |
+| `FoamFix` | client + server | candidate | Старый проверенный оптимизатор памяти. Использовать только если VintageFix не подходит или тесты показывают пользу. |
+| `Phosphor` | client + server | candidate | Оптимизация освещения. Проверить с HBM worldgen, структурами и tile entities. |
+| `Surge` | client + server | candidate | Оптимизации старта и runtime. Проверить на совместимость с HBM CE и другими coremods. |
+| `VanillaFix` | client | recommended | Клиентские фиксы крашей и производительности. |
+| `TexFix` | client | candidate | Снижение расхода видеопамяти на текстуры. Полезно для слабых клиентов. |
+| `BetterFps` | client | candidate | Клиентский FPS-тюнинг. Тестировать после основного набора, потому что эффект зависит от железа. |
+
+## HBM CE Source
+
+Основной HBM-мод, на который опирается сборка: `HBM's Nuclear Tech Mod: Community Edition`.
+
+Source repository: `Warfactory-Official/Hbm-s-Nuclear-Tech-CE`.
+
+Это именно выбранная CE-линия для Minecraft `1.12.2`: в исходниках проекта указан `modName = HBM's Nuclear Tech Mod: Community Edition`, `modId = hbm`, `minecraftVersion = 1.12.2`, а release archive формируется как `NTM-CE-1.12.2`.
+
+Для сервера берем опубликованный release `.jar`, а не случайную сборку из `master`. Важный нюанс: исходники могут собираться современным JDK через downgrader, но runtime-цель для Minecraft `1.12.2` остается Java 8.
 
 ## HBM Аддоны
 
 | Addon | Target | Side | Status | Notes |
 | --- | --- | --- | --- | --- |
-| `HBM's NTM CE: Space` | NTM:CE | client + server | high candidate | Space addon для CE. Требует `MixinBooter`. Не включать в первый boot-test. |
-| `HBM's Nuclear Tech - Leafia's Cursed Addon` | NTM:CE | client + server | optional / risky | Быстро обновляется, но стабильность ниже. |
-| `HBM Galacticraft Companion` | HBM + Galacticraft Legacy | client + server | optional | Только если добавляем Galacticraft. |
-| `HBM Fixes` | HBM 1.12.2 legacy ports | client + server | candidate for legacy ports | Не ставить поверх CE без проверки необходимости. |
-| `Potatoo's Custom Structure For HBM's Nuclear Tech Mod` | HBM 1.12.2 / Reloaded | client + server | optional | Worldgen. Выбрать до старта публичного мира. |
-| `HBM/NTM structure` | NTM Extended | client + server | optional | Ориентирован на Extended, не считать совместимым с CE без теста. |
-| `HBM Ruins Pack` | HBM 1.12.x | client + server | low confidence | Проверить формат установки и совместимость. |
-| `MSFH More structures for hbm` | HBM Reloaded | client + server | low confidence | Маленький structure addon, требует ручной проверки источника. |
+| `HBM's NTM CE: Space` | NTM:CE | client + server | CE-compatible candidate | Space addon для CE. Требует `MixinBooter`. Не включать в первый boot-test. |
+| `HBM's Nuclear Tech - Leafia's Cursed Addon` | NTM:CE | client + server | CE-compatible risky | Явно заявлен как CE addon, но стабильность ниже. Тестировать отдельным профилем. |
+| `HBM Galacticraft Companion` | HBM + Galacticraft Legacy | client + server | conditional / unknown with CE | Только если добавляем Galacticraft и подтверждаем совместимость именно с CE. |
+| `HBM Fixes` | HBM 1.12.2 legacy ports | client + server | not for CE unless proven | Не ставить поверх CE без конкретной причины. |
+| `Potatoo's Custom Structure For HBM's Nuclear Tech Mod` | HBM 1.12.2 / Reloaded | client + server | not for CE unless proven | Target не подтвержден для CE, worldgen-риск. |
+| `HBM/NTM structure` | NTM Extended | client + server | not compatible with CE plan | Ориентирован на Extended, не на CE. |
+| `HBM Ruins Pack` | HBM 1.12.x | client + server | not for CE unless proven | Неясная совместимость. |
+| `MSFH More structures for hbm` | HBM Reloaded | client + server | not compatible with CE plan | Ориентирован на Reloaded, не на CE. |
 | `More Stuff for Minecraft` | HBM + Creative Items | client + server | pack-dev only | Полезно только для кастомных рецептов. |
 | `HBM NTM Lucky blocks` | HBM Extended | client + server | rejected for main server | Ломает баланс и прогрессию. |
+
+Правило для HBM-аддонов: в CE-сборку допускаются только аддоны, где target явно указан как `NTM:CE` или `Community Edition`. Extended/Reloaded structure addons не считаем совместимыми.
 
 ## Библиотеки И Зависимости
 
@@ -105,15 +158,18 @@
 
 | Plugin | Platform | Status | Notes |
 | --- | --- | --- | --- |
-| `SpongeForge` | SpongeForge | later required | Нужен только для plugin-enabled профиля. Тестировать отдельно от чистого Forge. |
-| `LuckPerms` | Sponge | recommended | Права и группы. |
-| `Nucleus` | Sponge | recommended | Essentials/admin-команды. |
-| `GriefPrevention` | Sponge | recommended | Приваты. Обязательно тестировать HBM-взрывы и радиацию. |
-| `Spark` | Sponge or Forge | recommended | Не ставить одновременно Forge- и Sponge-вариант без причины. |
+| `SpongeForge` | SpongeForge | optional later | Нужен только если позже понадобится plugin-enabled профиль. Для маленького сервера стартуем без него. |
+| `LuckPerms` | Sponge | optional | Только если понадобятся группы прав. |
+| `Spark` | Sponge or Forge | recommended | Для текущего плана предпочтительнее Forge-вариант без Sponge. |
 | `UltimateChat` | Sponge | optional | Каналы и форматирование чата. |
 | `Plan` | Sponge | optional | Аналитика игроков. |
-| `EconomyLite` | Sponge | optional | Только если нужна экономика. |
-| `WorldEdit` | Sponge | candidate | Осторожно с модовыми блоками. |
+
+Не добавляем для текущего маленького сервера:
+
+- `WorldEdit`
+- `EconomyLite`
+- `GriefPrevention`
+- `Nucleus`
 
 ## Разделение Клиента И Сервера
 

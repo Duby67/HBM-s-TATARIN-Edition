@@ -1,10 +1,6 @@
 name,platform,status,minecraft,source,filename_hint,notes
 "SpongeForge",SpongeForge,required,1.12.2,SpongePowered/CurseForge,"spongeforge-7.5.0.jar or spongeforge-1.12.2-2838-7.4.7.jar","Only for plugin-enabled server profile; test against Forge 14.23.5.2860 first"
-"LuckPerms",Sponge,recommended,1.12.2,LuckPerms,"LuckPerms-Sponge-*.jar","Permissions and groups"
-"Nucleus",Sponge,recommended,1.12.2,Ore/GitHub,"Nucleus-*.jar","Essentials/admin commands"
-"GriefPrevention",Sponge,recommended,1.12.2,Ore/GitHub,"griefprevention-*.jar","Claims; test HBM explosions/radiation"
+"LuckPerms",Sponge,optional,1.12.2,LuckPerms,"LuckPerms-Sponge-*.jar","Only if permissions groups become necessary"
 "Spark",Sponge,recommended,1.12.2,Modrinth/GitHub,"spark-*.jar","Profiler; avoid duplicate if Forge Spark is used"
 "UltimateChat",Sponge,optional,1.12.2,Ore/GitHub,"UltimateChat-*.jar","Chat channels"
 "Plan",Sponge,optional,1.12.2,GitHub,"Plan-*.jar","Player analytics"
-"EconomyLite",Sponge,optional,1.12.2,Ore/GitHub,"EconomyLite-*.jar","Economy if needed"
-"WorldEdit",Sponge,candidate,1.12.2,EngineHub,"worldedit-sponge-*.jar","Admin edits; test modded blocks carefully"
