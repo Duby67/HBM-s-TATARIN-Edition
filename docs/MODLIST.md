@@ -33,6 +33,15 @@ HBM-ветка пока не финализирована. После прове
 | AppleSkin | client | Food HUD | Клиентский QoL. |
 | JourneyMap | client | Map | Сервер может запретить cave/radar настройки правилами. |
 
+## Quests And Progression
+
+| Mod | Side | Role | Notes |
+| --- | --- | --- | --- |
+| FTB Quests | common | Quest book | Основная система квестов для HBM-прогрессии. |
+| FTB Library | common | Library | Зависимость FTB Quests. |
+| Item Filters | common | Quest dependency | Фильтры предметов для FTB Quests. |
+| CraftTweaker | common | Recipe scripting | Добавлять после стабилизации base modlist. |
+| ModTweaker | common | Modded machine scripting | Кандидат для интеграции CraftTweaker с машинами. |
 ## Farming And Food
 
 | Mod | Side | Role | Notes |
@@ -73,5 +82,12 @@ HBM-ветка пока не финализирована. После прове
 | --- | --- | --- | --- |
 | Galacticraft | common | Space | Тематически подходит, но требует отдельного совместимого набора аддонов. |
 | OpenComputers | common | Automation | Хорош для продвинутой автоматизации. |
+| Super Factory Manager | common | Automation | Кандидат из NTM Standard Pack. |
+| Chisel | common | Building | Декор, низкий gameplay-риск. |
+| MCHeliCE | common | Vehicles/combat | Только если нужна техника/авиация. |
+| Warforge Remaintained | common | Warfare | Поздний optional-кандидат. |
 | ComputerCraft/CC:Tweaked | common | Automation | Альтернатива OpenComputers. |
-| NuclearCraft | common | Nuclear tech | Под вопросом: может дублировать роль HBM. |
+| IC2 | common | Tech | Deferred: еще одна полная tech-прогрессия. |
+| NuclearCraft | common | Nuclear tech | Deferred: дублирует роль HBM. |
+| Draconic Evolution | common | Power creep | Rejected for now: слишком сильный скачок мощности. |
+| Uncrafting Table | common | Utility | Rejected for now: dupe/balance risk. |

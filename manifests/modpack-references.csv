@@ -1,0 +1,6 @@
+name,minecraft,hbm_base,server_relevance,mods_or_systems_to_consider,do_not_copy_directly,notes
+"Techmadness","1.12.2","HBM Nuclear Tech unspecified 1.12.2","reference-only","Mekanism; AE2; Thermal; FTB Quests; CraftTweaker; Chisel; Item Filters; Phosphor; FoamFix; BetterFps","Full stack; OptiFine; JourneyMap on server; Draconic Evolution; NuclearCraft; IC2 addons; Uncrafting Table","Large kitchen-sink pack; scripts/config are part of progression"
+"NTM Standard Pack","1.12.2","NTM:CE + NTM Space","strong-reference","NTM Space; AE2; OpenComputers; SFM; MCHeliCE; Warforge Remaintained; quests; recipe rebalance","Full pack template; Java 25 assumption; in-house mods/resources","Best CE-specific reference for multiplayer progression"
+"NukclearTek server","1.12.2","HBM NTM CE","real-server-reference","Minimal HBM CE server; Immersive Vehicles; chat moderation","Assume no full modpack balancing from public listing","Shows small HBM CE online server approach"
+"HBM Hamster Reloaded Modpack","1.12.2","Hamster Reloaded","low-reference","General HBM survival ideas","HBM fork; OptiFine required; mirror server files","Not CE-aligned"
+"Nuclear Tech New Horizons","1.7.10","Official HBM NTM","design-reference-only","Quest progression; long tech gating","Mod list; server stack; Minecraft version","Good progression reference, not compatible with 1.12.2 CE plan"

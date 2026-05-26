@@ -77,6 +77,31 @@
 | `Mekanism` | client + server | recommended | Оставляем в плане сборки. Совместимость с HBM подтверждена отдельным изучением. |
 | `Galacticraft` | client + server | candidate | Космос. Имеет смысл только вместе с отдельной проверкой HBM-интеграций. |
 
+## Квесты И Прогрессия
+
+Берем полезное из Techmadness и NTM Standard Pack: квесты, scripts/config discipline и аккуратное gating-планирование.
+
+| Mod / System | Side | Status | Notes |
+| --- | --- | --- | --- |
+| `FTB Quests` | client + server | selected | Основной quest book. |
+| `FTB Library` | client + server | required | Зависимость FTB Quests. |
+| `Item Filters` | client + server | required | Нужен для item filter задач и условий. |
+| `CraftTweaker` | client + server | selected after base boot | Рецепты, конфликтные crafts и баланс прогрессии. |
+| `ModTweaker` | client + server | candidate | Интеграции CraftTweaker с модовыми машинами, добавлять только под конкретные scripts. |
+
+План глав квестов:
+
+1. Bootcamp и правила сервера.
+2. Survival, фермерство и еда.
+3. Mining и radiation safety.
+4. HBM early industry.
+5. Mekanism integration.
+6. Storage и logistics через Storage Drawers/AE2.
+7. Power и automation.
+8. Advanced HBM.
+9. Optional CE Space после отдельного теста.
+
+Подробности: [docs/QUEST_PROGRESSION.md](docs/QUEST_PROGRESSION.md).
 ## Фермерство, Еда И HP
 
 | Mod | Side | Status | Notes |
@@ -189,14 +214,17 @@ docs/
   DECISIONS.md
   FIRST_DEPLOY_CHECKLIST.md
   HBM_ECOSYSTEM.md
+  MODPACK_RESEARCH.md
   MODLIST.md
   PLUGINLIST.md
+  QUEST_PROGRESSION.md
   SERVER_CLIENT_SPLIT.md
   UBUNTU22_SERVER.md
 manifests/
   hbm-addons.csv
   hbm-modpacks.csv
   hbm-variants.csv
+  modpack-references.csv
   mods.csv
   plugins.csv
 profiles/
